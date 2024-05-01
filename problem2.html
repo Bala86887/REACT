@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+<div id="roottwo"></div>
+<div id="rootthree"></div>
+
+</body>
+</html>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+//simple jsx//
+let create=(<p>seize the body</p>)
+let dom=ReactDOM.createRoot(document.getElementById("root"))
+dom.render(create)
+
+let text="seize the day"
+let createtwo=(<p>{text}</p>)
+let domtwo=ReactDOM.createRoot(document.getElementById("roottwo"))
+domtwo.render(createtwo)
+
+//conditional rendering//
+let boolean=false
+if(boolean){
+    let createthree=(<p>this para is coreect</p>)
+let domthree=ReactDOM.createRoot(document.getElementById("rootthree"))
+domthree.render(createthree)
+
+}
+else{
+
+    let createthree=(<p>this para is incoreect</p>)
+let domthree=ReactDOM.createRoot(document.getElementById("rootthree"))
+domthree.render(createthree)
+
+
+
+
+
+}
+
+  </script>
