@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<div id="root"></div>
+   
+    
+</body>
+</html>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    let doc=document.getElementById("root")
+function ItemList(items){
+  let [first,second,third]=items
+    if(items.length<1){return(<h1>No items found</h1>)}
+
+
+    else{return(<ul><li>{first}</li>
+        <li>{second}</li>
+        <li>{third}</li>
+        </ul>)}
+}
+
+let dom=ReactDOM.createRoot(doc)
+dom.render(
+ItemList(["apple   ",  "Banana    ","Cherry",]))
+</script>
