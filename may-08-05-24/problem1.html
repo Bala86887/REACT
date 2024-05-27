@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #root{display: grid;grid-template-columns: repeat(3,400px);margin: auto;gap: 10px;}  
+      #root>div>h1{padding-left: 50px;}
+      #root{height: auto;width: 1200px;border: blue solid 2px;margin: auto;}
+    </style>
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+// Create a Greeting Card Component: Design a GreetingCard component that accepts greeting (e.g., "Happy Birthday") and 
+// name (e.g., "John Doe") as props and displays them in a styled card format.
+
+// Render a List of Greeting Cards: In your App component, maintain an array of objects where each object represents a 
+// greeting card with a greeting and a name. Use the map() function to iterate over this array and render a GreetingCard component for each object.
+
+// Styling: Apply basic CSS styling to your greeting cards to make them visually appealing. This can include borders, padding, margins, 
+// and background colors.
+
+let styobj={
+    height:"auto",
+width:"300px",
+    border:"red 2px solid",
+    display:"grid",
+    
+}
+function Greeting(prop){
+     console.log(prop.obj.name)
+
+return(<div style={{...styobj}}>
+        
+    <h1>{prop.obj.wish}</h1>
+    <h1>{prop.obj.name}</h1>
+    <h1>{prop.obj.place}</h1>
+    <h1>{prop.obj.course}</h1>
+    
+    </div>)
+}
+
+
+
+
+
+function App(){
+
+  let array=[{wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},{wish:"haapy birthday",name:"veeresh",place:"adoni",course:"biochar",},
+
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+  {wish:"haapy birthday",name:"siva",place:"madharpuram",course:"full stock development"},
+
+
+
+
+
+
+
+
+  ]  
+  
+return(<> 
+
+{array.map((ele)=>(
+<Greeting  obj={ele}/>
+
+))}
+
+    
+    </>)
+}
+
+
+
+
+
+   let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+  </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+#root>div{display: grid;grid-template-columns: repeat(3,400px);gap: 20px;}
+#root>div>div{border: blue solid 2px;}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/babel">
+// Add New Task: Implement a form to add new tasks with the properties { title: string, isCompleted: boolean, assignee: string }. 
+// Use Axios to send a POST request to add the task to your JSON server.
+// Update Existing Task: Provide a way to update the title, isCompleted, and assignee properties of an existing task. This should 
+// involve sending a PUT request using Axios.
+// Delete Existing Task: Implement a delete button for each task that sends a DELETE request using Axios to remove the task from the server.
+// Show All Tasks: . There should be a button called Get all tasks clicking on which should display all tasks retrieved from the server 
+// with a GET request and display them on DOM.
+// Show Incomplete Tasks: Add a button Show incomplete tasks that filters and displays only the tasks that are not completed.
+// Filter Tasks by Assignee: Implement a feature to filter tasks by assignee name.
+let {useEffect}=React
+function App(){
+let [data,set]=React.useState([])
+console.log(data)
+async function one(){
+
+  let getdata=await axios.get("http://localhost:3000/details")
+ 
+  set(getdata.data)
+}
+
+useEffect(()=>{
+  one()
+},[])
+
+return(<div>
+  
+  {data.map((elements)=>(
+<div>
+  <p>{elements.name}</p>
+<p>{elements.place}</p>
+<p>{elements.phono}</p>  
+  </div>
+
+  ))}
+  </div>)
+
+}
+
+
+let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+</script>
+</html>

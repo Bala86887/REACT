@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+// Enhance the ToDoList Component: Starting with the basic ToDoList component, add functionality to:
+
+// Add new ToDo items to the list.
+// Delete items from the list.
+// Mark items as completed (strike through the text of completed items).
+// User Input for New ToDo Items: Implement a form with an input field and a submit button to allow users to enter new ToDo items.
+
+// Interactive List Items: Each item in the list should have a delete button and a checkbox to mark the item as completed.
+
+// Styling and Usability: Apply CSS to improve the visual appeal and usability of your ToDo List application. Focus on making the UI intuitive 
+// for adding, deleting, and marking items as completed 
+
+
+
+function TodoList(){
+    let [store,setstore]=React.useState([])
+  let [todo,settodo]=React.useState("")
+  let [check,setcheck]=React.useState("")
+function handlechange(e){
+    settodo(e.target.value)
+
+}
+
+
+function handleclick(){
+    setcheck("completed")
+}
+
+function save(){
+setstore([...store,{item:todo,status:check}])
+settodo("")
+setcheck(false)
+}
+console.log(store)
+
+
+
+
+return(<div>
+    
+    <input value={todo} onChange={handlechange} />
+    <input type="checkbox" onChange={handleclick} checked={check}/>
+    <button onClick={save}>add todo</button>
+    {store.map((ele)=>(
+
+    <li>
+    todo:{ele.item}      <span>  {"  "}status:{ele.status}</span>
+
+    </li>
+
+
+))}
+    </div>)
+
+}
+
+
+
+
+
+
+
+
+  let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<TodoList/>)
+
+  </script>
+</html>

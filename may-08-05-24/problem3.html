@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+    #root>div>div{border: red solid 2px;height: 300px;300px}
+  
+   </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/babel">
+//     Render User Profiles: Use the provided user structure in the tutorial notes to render a list of user profiles using 
+//     the UserProfile component. Initially, display all user profiles.
+
+// Implement Search Functionality: Add an input field at the top of your application that allows users to search for profiles by 
+// name. As the user types in the search field, the list of displayed profiles should dynamically update to only show profiles matching the 
+// search query.
+
+// Optimize Search Efficiency: Implement the search functionality in a way that optimizes performance and avoids unnecessary re-renders of the list.
+
+// Styling and Interactivity: Ensure the application is styled for a pleasant user experience and that the search field is prominently placed and 
+// easy to use
+let {useState,useEffect}=React
+function Child(props){
+  let {objects}=props
+  let {avatar,first_name,last_name,email}=objects
+  return(
+
+  <div>
+    <img src={avatar}/>
+    <p>{first_name}</p>
+    <p>{last_name}</p>
+    <p>{email}</p>
+    </div>
+  )
+}
+function App(){
+  let [data,set]=useState([])
+  console.log(data)
+let[name,search]=React.useState("")
+console.log(name)
+function handleChange(event){
+search(event.target.value)
+}
+
+useEffect((e)=>fetchUsers(),[])
+
+let fetchUsers=async()=>{
+ let getdata= await axios.get("https://reqres.in/api/users?page=2")
+
+ set(getdata.data.data)
+
+}
+
+let check=data.filter(function(ele){
+  return ele.first_name.includes(name)
+})
+// console.log(check)
+
+
+
+return(<div>
+  <input onChange={handleChange} value={name}/>
+  {check.map((check)=>(
+
+    <Child objects={check}/>
+  ))}
+  
+  
+  </div>)
+
+
+
+}
+  
+
+
+
+
+let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+  </script>
+</html>
