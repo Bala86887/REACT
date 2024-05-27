@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+// Create a Quiz Component: Develop a Quiz component that renders a simple quiz on the screen. The quiz should contain at least 3 
+// questions, each with multiple-choice answers.
+
+// State Management: Utilize the useState hook to manage the state for each question's selected answer and the final score. Each 
+// question should update its part of the state when the user selects an answer.
+
+// Form Submission: Include a submit button that, when clicked, calculates the user's score based on their answers and displays it. 
+// Use state to show the score and to hide the quiz questions post-submission, showcasing a "Your Score" section instead.
+
+// Bonus Challenge: Add functionality to restart the quiz after submitting, resetting the state as necessary.
+
+function App(){
+let [store,setstore]=React.useState([])
+let [one,two]=React.useState("")
+let [q2,setq2]=React.useState("")
+let [q3,setq3]=React.useState("")
+function check(e){
+  two(e.target.value)
+  
+}
+console.log(store)
+function checktwo(e){
+  setq2(e.target.value)
+  
+}
+
+function checkthree(e){
+  setq3(e.target.value)
+  
+}
+
+
+
+
+function add(e){
+  e.preventDefault()
+  setstore([...store,one,q2,q3])
+  console.log(one)
+  console.log(q2)
+  console.log(q3)
+}
+return(<div>
+    
+      <h1>which place u like more?</h1>  
+      <form>
+        <input type="radio"  onChange={check} value="agra"/>
+    <label>agara</label>
+    <input type="radio" value="lotuw"  onChange={check}/>
+    <label>lotus</label>
+
+
+    
+    <h1>which language u like more?</h1>  
+      
+        <input type="radio"  onChange={checktwo} value="html"/>
+    <label>html</label>
+    <input type="radio" value="css"  onChange={checktwo}/>
+    <label>css</label>
+
+
+    
+    <h1>which vehicle u prefer more to drive?</h1>  
+      
+        <input type="radio"  onChange={checkthree} value="car"/>
+    <label>car</label>
+    <input type="radio" value="bike"  onChange={checkthree}/>
+    <label>bike</label>
+
+
+
+       <button onClick={add}>submit</button>
+        </form>
+   
+    <h1>your answers</h1>
+   {store.map((ele)=>(
+    <p>{ele}</p>
+))}
+    </div>)
+}
+
+
+
+
+let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+  </script>
+</html>

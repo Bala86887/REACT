@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+//    Initial Form State: Start with a single input field where a user can type in a hobby.
+// Dynamic Input Fields: Include buttons to add more hobby input fields and to remove them as needed, 
+// except for the first input field which should always remain.
+// State Management: Use the useState hook to manage the state of the hobbies as an array of strings.
+// Form Submission: Implement a submit button that logs the array of hobbies to the console.
+// UI Considerations: Ensure the form is user-friendly, with clear indications for adding/removing inputs and an evident submit button.
+
+function App(){
+let [hobbie,sethobbie]=React.useState([])
+let [hobbi,sethobbi]=React.useState("")
+
+function handlechange(e){
+sethobbi(e.target.value)
+
+}
+
+function add(){
+
+  sethobbie([...hobbie,hobbi])
+  sethobbi("")
+ 
+}
+console.log(hobbie)
+  return(
+
+   <div>
+    <input placeholder="enter your hobbie" value={hobbi} onChange={handlechange}/>
+    <button onClick={add}>add more hobbbies</button>
+
+    </div> 
+
+
+  
+  )
+}
+
+
+
+
+
+let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+  </script>
+</html>

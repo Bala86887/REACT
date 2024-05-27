@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+//      Creating the Color Input Field: Implement an input field that accepts HEX color 
+//      values (e.g., #FFFFFF for white). This will involve managing an input state that updates on every keystroke.
+
+// Displaying the Color Preview: Below the input field, display a large, square div that serves as a preview of the color. 
+// The background color of this div should change in real-time as the user types in a HEX color value.
+
+// User Feedback: Ensure that the application provides feedback to the user if the entered HEX color code is invalid. 
+// This could be a simple text message indicating the error.
+
+
+
+// function App(){
+// let [one,two]=React.useState("")
+
+// function handleChange(event){
+    
+// two(event.target.value)
+// }
+// console.log(one)
+
+// let obj={backgroundColor:}
+//     return(
+//         <>
+        
+//         <input onChange={handleChange}/>
+//         <div style={{height:"300px",width:"300px",border:"red solid 2px",marginTop:"15px",backgroundColor:"#000000"}}></div>
+//         </>
+
+//     )
+// }
+
+
+
+function One(){
+
+let arr=[{name:"siva",place:"madharpuram",gender:"male"},{name:"veeresh",place:"madharpuram",gender:"male"},{name:"vanarasi",place:"madharpuram",gender:"male"}]
+
+return(
+
+<>
+
+{arr.map((ele)=>(
+<div>
+  <h1>{ele.name}</h1>
+<h1>{ele.place}</h1>
+<h2>{ele.gender}</h2>
+
+  
+  
+  
+  </div>
+
+))}
+
+</>
+
+)
+
+}
+
+
+
+
+function App(){
+return(
+
+<>
+<One/>
+</>
+
+)
+
+
+}
+
+
+
+
+let get=document.getElementById("root")
+let dom=ReactDOM.createRoot(get)
+dom.render(<App/>)
+  </script>
+</html>

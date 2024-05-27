@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+// Creating the Color Input Field: Implement an input field that accepts HEX color values (e.g., #FFFFFF for white). 
+// This will involve managing an input state that updates on every keystroke.
+
+// Displaying the Color Preview: Below the input field, display a large, square div that serves 
+// as a preview of the color. The background color of this div should change in real-time as the user types in a HEX color value.
+
+// User Feedback: Ensure that the application provides feedback to the user if the entered HEX color code is 
+// invalid. This could be a simple text message indicating the error.
+let obj={
+height:"500px",
+width:"500px",
+border:"black solid 2px",
+marginTop:"20px"
+
+}
+
+function Color(){
+let [currentColor,upDatedColor]=React.useState("")
+function  handlechange(event){
+    upDatedColor(event.target.value)
+}
+console.log(currentColor.length)
+
+
+
+return(<div>
+    <input placeholder="enter color value" onChange={handlechange}/>
+    <div style={{...obj,backgroundColor:currentColor}}></div> 
+    </div>
+
+
+)
+  
+
+    
+
+
+  
+  
+       
+        
+     
+ 
+
+
+
+}
+
+
+
+
+
+
+let root=ReactDOM.createRoot(document.getElementById("root"))
+root.render(<Color/>)
+  </script>
+</html>

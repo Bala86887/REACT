@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+   
+//    Todo List Implementation: Implement a todo list where users can add new tasks, mark tasks as completed, 
+//    and remove tasks. This involves managing a list state that holds all todo items and their statuses.
+
+// Filtering Functionality: Add buttons or links that allow users to filter the displayed tasks based on their completion 
+// status (e.g., All, Active, Completed). This will require implementing logic to conditionally render tasks based on the selected filter.
+
+// User Interface Design: Ensure your application is user-friendly, with clear indications of task statuses and easy navigation for filtering tasks.
+
+let a="compltede"
+
+function App(){
+let [store,setstore]=React.useState([])
+let [name,setname]=React.useState("")
+let [ticked,settick]=React.useState(false)
+
+
+function handlechange(e){
+setname(e.target.value)
+}
+
+
+
+
+function tick(){
+
+
+settick(!ticked)
+settick("completed")
+}
+
+
+
+function add(){
+
+setstore([...store,{name,ticked}])  
+setname("")
+settick("")
+
+}
+
+
+
+
+
+  return(<div>
+    <label>enter yoour task:</label>
+    <input onChange={handlechange} value={name}/><br/>
+    <label>select box if the task compaleted:</label>
+    <input type="checkbox" onChange={tick} checked={ticked}/><br/>
+    <button onClick={add}>add todo</button>
+ <div>
+  {store.map((ele,index)=>(
+
+   <div>
+    <h1>task:{ele.name} <span>status:{ele.ticked}</span></h1>
+    <button onClick={function(){store.splice(index+1,1)}}>delete</button>
+    </div>
+  ))}
+  
+  </div>
+    </div>)
+}
+
+
+   let  root=document.getElementById("root")
+let dom=ReactDOM.createRoot(root)
+dom.render(<App/>)
+  </script>
+</html>
